@@ -54,22 +54,22 @@ Encapsulation of network data requests
 之后，便可直接调用`PTFetchEmitter`来进行数据请求
 
 ```Objective-C
-    PTFetchModel *fetchModel = [PTFetchModel new];
-    
-    fetchModel.urlString = @"http://www.xxx.com/xx/xxx/xxx";
-    fetchModel.parameters = @{@"key":@"value"};
-    
-    fetchModel.success = ^(id obj){
-        NSLog(@"%@",obj);
-    };
-    
-    fetchModel.failure = ^(id error){
-        NSLog(@"%@",error);
-    };
-    
-    fetchModel.progressing = ^(NSProgress * _Nonnull progress) {
-        NSLog(@"%@",progress);
-    };
-    
-    [PTFetchEmitter POSTDataWithFetchModel:fetchModel];
+PTFetchModel *fetchModel = [PTFetchModel new];
+
+fetchModel.urlString = @"http://www.xxx.com/xx/xxx/xxx";
+fetchModel.parameters = @{@"key":@"value"};
+
+fetchModel.success = ^(id obj){
+    NSLog(@"%@",obj);
+};
+
+fetchModel.failure = ^(id error){
+    NSLog(@"%@",error);
+};
+
+fetchModel.progressing = ^(NSProgress * _Nonnull progress) {
+    NSLog(@"%@",progress);
+};
+
+[PTFetchEmitter POSTDataWithFetchModel:fetchModel];
 ```
