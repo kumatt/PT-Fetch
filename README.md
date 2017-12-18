@@ -30,10 +30,11 @@ Encapsulation of network data requests
  */
 + (void)FetchDelegate_setRulesWithData:(NSData* _Nullable)data success:(void (^ __nullable)(id _Nullable responseObject))success failure:(void (^ __nullable)(id _Nullable error))failure;
 
-/**Objective-C
- 网络请求错误
+/**
+ 错误信息处理
  
  @param error 错误信息
+ @return 处理后的错误信息，建议使用自定义的ErrorModel
  */
 + (id _Nullable)FetchDelegate_FailWithError:(id _Nullable)error;
 
@@ -52,7 +53,7 @@ Encapsulation of network data requests
 
 之后，便可直接调用`PTFetchEmitter`来进行数据请求
 
-```
+```Objective-C
     PTFetchModel *fetchModel = [PTFetchModel new];
     
     fetchModel.urlString = @"http://www.xxx.com/xx/xxx/xxx";
