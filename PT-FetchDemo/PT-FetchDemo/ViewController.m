@@ -43,7 +43,7 @@
         NSLog(@"%@",progress);
     };
     
-    [PTFetchEmitter GETDataWithFetchModel:fetchModel];
+    [PTFetchEmitter UPLOADDataWithFetchModel:fetchModel];
 }
 
 - (void)didReceiveMemoryWarning {
