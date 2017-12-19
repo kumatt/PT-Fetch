@@ -18,6 +18,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PTFetchModel.h"
+#import "AFNetworking.h"
 
 @interface PTFetchEmitter : NSObject
 

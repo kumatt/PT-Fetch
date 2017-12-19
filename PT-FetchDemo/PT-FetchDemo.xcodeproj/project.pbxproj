@@ -16,7 +16,7 @@
 		016C41D11FE7E5900045A574 /* PTFetchEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D01FE7E5900045A574 /* PTFetchEmitter.m */; };
 		016C41D61FE7E79C0045A574 /* PTFetchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D51FE7E79C0045A574 /* PTFetchModel.m */; };
 		016C41DA1FE807A90045A574 /* PublicFetchTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D91FE807A90045A574 /* PublicFetchTarget.m */; };
-		8336329EAB83F0DD75BB1051 /* libPods-PT-FetchDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F05789A7456A78EA4E5C9F3B /* libPods-PT-FetchDemo.a */; };
+		BB4295304BD9C91BFE688751 /* Pods_PT_FetchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +38,8 @@
 		016C41D81FE807A90045A574 /* PublicFetchTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicFetchTarget.h; sourceTree = "<group>"; };
 		016C41D91FE807A90045A574 /* PublicFetchTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicFetchTarget.m; sourceTree = "<group>"; };
 		0DEDC23F317183CAED03B4AF /* Pods-PT-FetchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PT_FetchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA5B4EBFC3F734D2D0A33FBF /* Pods-PT-FetchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.release.xcconfig"; sourceTree = "<group>"; };
-		F05789A7456A78EA4E5C9F3B /* libPods-PT-FetchDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-PT-FetchDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,7 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8336329EAB83F0DD75BB1051 /* libPods-PT-FetchDemo.a in Frameworks */,
+				BB4295304BD9C91BFE688751 /* Pods_PT_FetchDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,7 +131,7 @@
 		304A1FF8BD7B1F275AE34296 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				F05789A7456A78EA4E5C9F3B /* libPods-PT-FetchDemo.a */,
+				1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -227,13 +227,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-PT-FetchDemo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BBA8BEBBA6FFE277D3C158C3 /* [CP] Embed Pods Frameworks */ = {
@@ -242,9 +245,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -337,7 +343,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -386,7 +392,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

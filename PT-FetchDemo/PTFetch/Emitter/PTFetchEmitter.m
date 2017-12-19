@@ -7,7 +7,6 @@
 //
 
 #import "PTFetchEmitter.h"
-#import <AFNetworking.h>
 
 @interface PTFetchEmitter ()
 
