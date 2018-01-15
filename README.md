@@ -40,15 +40,14 @@ Encapsulation of network data requests
 
 ```
 
-并将其配置给`PTFetchModel`
+并在`AppDelegate`中将其配置给`PTFetchModel`
 
 ```Objective-C
-/**
- 设置代理执行者
-
- @param delegate 代理对象
- */
-+ (void)Fetch_setDelegateClass:(Class<PTFetchDelegate> _Nonnull)delegate;
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     ///设置代理执行者
+    [PTFetchModel Fetch_setDelegateClass:(Class<PTFetchDelegate> _Nonnull)delegate];
+    return YES;
+}
 ```
 
 之后，便可直接调用`PTFetchEmitter`来进行数据请求
