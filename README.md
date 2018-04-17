@@ -3,72 +3,50 @@ Encapsulation of network data requests
 
 首先，创建一个实现`PTFetchDelegate`代理方法的类
 
-```Objective-C
-/**
- 获取完整的路径
-
- @param urlString 传入路径字符串
- @return 完整路径
- */
-+ (NSString* _Nonnull)FetchDelegate_setFullUrlStringWithUrlString:(NSString*_Nonnull)urlString;
-
-/**
- 获取完整的配置参数
-
- @param parameter 传入的配置参数
- @return 完整的配置参数
- */
-+ (NSDictionary* _Nonnull)FetchDelegate_getFullParametersWithParameter:(NSDictionary*_Nonnull)parameter;
-
-
-/**
- 处理获取的数据
-
- @param data 请求到的二进制数据
- @param success 成功回调
- @param failure 失败回调
- */
-+ (void)FetchDelegate_setRulesWithData:(NSData* _Nullable)data success:(void (^ __nullable)(id _Nullable responseObject))success failure:(void (^ __nullable)(id _Nullable error))failure;
-
-/**
- 错误信息处理
- 
- @param error 错误信息
- @return 处理后的错误信息，建议使用自定义的ErrorModel
- */
-+ (id _Nullable)FetchDelegate_FailWithError:(id _Nullable)error;
+```Swift
+/// 拼接请求路径
+    func appentUrlWithShortUrl(url:String!) -> String?
+    
+    /// 拼接配置参数
+    func appentParamentsWithShortParament(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
+    
+    /// 根据规则筛选数据
+    func dealRulesWith(data:Data,success:FetchBlock,failure:FetchBlock)
+    
+    ///处理错误信息
+    func dealErrorData(error:Any) -> Any
 
 ```
 
 并在`AppDelegate`中将其配置给`PTFetchModel`
 
-```Objective-C
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-     ///设置代理执行者
-    [PTFetchModel Fetch_setDelegateClass:(Class<PTFetchDelegate> _Nonnull)delegate];
-    return YES;
-}
+```Swift
+ func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        // Override point for customization after application launch.
+        PTFetchModel.delegate(delegate: PublicFetchTarget())
+        return true
+    }
 ```
 
-之后，便可直接调用`PTFetchEmitter`来进行数据请求
+之后，便可直接调用`PTFetchManager`来进行数据请求
 
-```Objective-C
-PTFetchModel *fetchModel = [PTFetchModel new];
+```Swift
+   func fetch() {
+      let fetchModel:PTFetchModel = PTFetchModel()
+      fetchModel.urlString = "http://www.juyuanche.com/api001/user/userInfo"
+      fetchModel.uploadName = "user_picture"
+      fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
+      fetchModel.contentType = "png"
+      fetchModel.mimeType = "image/*"
+      fetchModel.succeess = succeessWay
+      fetchModel.failure  = failure
+      PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
+  }
 
-fetchModel.urlString = @"http://www.xxx.com/xx/xxx/xxx";
-fetchModel.parameters = @{@"key":@"value"};
+  func succeess(_:Any) {
 
-fetchModel.success = ^(id obj){
-    NSLog(@"%@",obj);
-};
+  }
+  func failure(_:Any) {
 
-fetchModel.failure = ^(id error){
-    NSLog(@"%@",error);
-};
-
-fetchModel.progressing = ^(NSProgress * _Nonnull progress) {
-    NSLog(@"%@",progress);
-};
-
-[PTFetchEmitter POSTDataWithFetchModel:fetchModel];
+  }
 ```
