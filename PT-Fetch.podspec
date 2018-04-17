@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #  can feel like a chore to fill in it's definitely to your advantage. The
   #  summary should be tweet-length, and the description more in depth.
   #
-  s.name         = "PTFetch"
+  s.name         = "PT-Fetch"
   s.version      = "0.0.1"
   s.summary      = "Encapsulation of network data requests"
   s.homepage     = "https://github.com/OComme/PT-Fetch"
