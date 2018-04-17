@@ -7,131 +7,102 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		016C41B81FE7E3EF0045A574 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41B71FE7E3EF0045A574 /* AppDelegate.m */; };
-		016C41BB1FE7E3EF0045A574 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41BA1FE7E3EF0045A574 /* ViewController.m */; };
-		016C41BE1FE7E3EF0045A574 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016C41BC1FE7E3EF0045A574 /* Main.storyboard */; };
-		016C41C01FE7E3EF0045A574 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 016C41BF1FE7E3EF0045A574 /* Assets.xcassets */; };
-		016C41C31FE7E3EF0045A574 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 016C41C11FE7E3EF0045A574 /* LaunchScreen.storyboard */; };
-		016C41C61FE7E3EF0045A574 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41C51FE7E3EF0045A574 /* main.m */; };
-		016C41D11FE7E5900045A574 /* PTFetchEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D01FE7E5900045A574 /* PTFetchEmitter.m */; };
-		016C41D61FE7E79C0045A574 /* PTFetchModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D51FE7E79C0045A574 /* PTFetchModel.m */; };
-		016C41DA1FE807A90045A574 /* PublicFetchTarget.m in Sources */ = {isa = PBXBuildFile; fileRef = 016C41D91FE807A90045A574 /* PublicFetchTarget.m */; };
-		BB4295304BD9C91BFE688751 /* Pods_PT_FetchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */; };
+		023BCEF72085DB3D0097E130 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCEF62085DB3D0097E130 /* AppDelegate.swift */; };
+		023BCEF92085DB3D0097E130 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCEF82085DB3D0097E130 /* ViewController.swift */; };
+		023BCEFC2085DB3D0097E130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFA2085DB3D0097E130 /* Main.storyboard */; };
+		023BCEFE2085DB3D0097E130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFD2085DB3D0097E130 /* Assets.xcassets */; };
+		023BCF012085DB3D0097E130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFF2085DB3D0097E130 /* LaunchScreen.storyboard */; };
+		023BCF0C2085DCDD0097E130 /* PTFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */; };
+		023BCF0E2085DCEA0097E130 /* PTFetchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */; };
+		023BCF12208611760097E130 /* PublicFetchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF11208611760097E130 /* PublicFetchTarget.swift */; };
+		FC3D481AA313671DD4D278C6 /* Pods_PT_FetchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		016C41B31FE7E3EF0045A574 /* PT-FetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PT-FetchDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		016C41B61FE7E3EF0045A574 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		016C41B71FE7E3EF0045A574 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		016C41B91FE7E3EF0045A574 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		016C41BA1FE7E3EF0045A574 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		016C41BD1FE7E3EF0045A574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		016C41BF1FE7E3EF0045A574 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		016C41C21FE7E3EF0045A574 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		016C41C41FE7E3EF0045A574 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		016C41C51FE7E3EF0045A574 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		016C41CF1FE7E5900045A574 /* PTFetchEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTFetchEmitter.h; sourceTree = "<group>"; };
-		016C41D01FE7E5900045A574 /* PTFetchEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTFetchEmitter.m; sourceTree = "<group>"; };
-		016C41D41FE7E79C0045A574 /* PTFetchModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTFetchModel.h; sourceTree = "<group>"; };
-		016C41D51FE7E79C0045A574 /* PTFetchModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PTFetchModel.m; sourceTree = "<group>"; };
-		016C41D71FE7FA000045A574 /* PTFetchDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PTFetchDelegate.h; sourceTree = "<group>"; };
-		016C41D81FE807A90045A574 /* PublicFetchTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PublicFetchTarget.h; sourceTree = "<group>"; };
-		016C41D91FE807A90045A574 /* PublicFetchTarget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PublicFetchTarget.m; sourceTree = "<group>"; };
-		0DEDC23F317183CAED03B4AF /* Pods-PT-FetchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PT_FetchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		EA5B4EBFC3F734D2D0A33FBF /* Pods-PT-FetchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.release.xcconfig"; sourceTree = "<group>"; };
+		023BCEF32085DB3D0097E130 /* PT-FetchDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "PT-FetchDemo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		023BCEF62085DB3D0097E130 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		023BCEF82085DB3D0097E130 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		023BCEFB2085DB3D0097E130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		023BCEFD2085DB3D0097E130 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		023BCF002085DB3D0097E130 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		023BCF022085DB3D0097E130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		023BCF082085DB610097E130 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		023BCF092085DB610097E130 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFetchManager.swift; sourceTree = "<group>"; };
+		023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFetchModel.swift; sourceTree = "<group>"; };
+		023BCF11208611760097E130 /* PublicFetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFetchTarget.swift; sourceTree = "<group>"; };
+		0FF1C46AC68372CD8F249152 /* Pods-PT-FetchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.release.xcconfig"; sourceTree = "<group>"; };
+		2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PT_FetchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7990223057431AD44E10C326 /* Pods-PT-FetchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		016C41B01FE7E3EF0045A574 /* Frameworks */ = {
+		023BCEF02085DB3D0097E130 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB4295304BD9C91BFE688751 /* Pods_PT_FetchDemo.framework in Frameworks */,
+				FC3D481AA313671DD4D278C6 /* Pods_PT_FetchDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		016C41AA1FE7E3EF0045A574 = {
+		023BCEEA2085DB3D0097E130 = {
 			isa = PBXGroup;
 			children = (
-				016C41B51FE7E3EF0045A574 /* PT-FetchDemo */,
-				016C41B41FE7E3EF0045A574 /* Products */,
-				1D0DE360C138E2F873E31110 /* Pods */,
-				304A1FF8BD7B1F275AE34296 /* Frameworks */,
+				023BCEF52085DB3D0097E130 /* PT-FetchDemo */,
+				023BCEF42085DB3D0097E130 /* Products */,
+				7106621B4267AF52FD669B67 /* Pods */,
+				AD0E69BA3834199E7B653BCF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		016C41B41FE7E3EF0045A574 /* Products */ = {
+		023BCEF42085DB3D0097E130 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				016C41B31FE7E3EF0045A574 /* PT-FetchDemo.app */,
+				023BCEF32085DB3D0097E130 /* PT-FetchDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		016C41B51FE7E3EF0045A574 /* PT-FetchDemo */ = {
+		023BCEF52085DB3D0097E130 /* PT-FetchDemo */ = {
 			isa = PBXGroup;
 			children = (
-				016C41D81FE807A90045A574 /* PublicFetchTarget.h */,
-				016C41D91FE807A90045A574 /* PublicFetchTarget.m */,
-				016C41CC1FE7E40E0045A574 /* PTFetch */,
-				016C41B61FE7E3EF0045A574 /* AppDelegate.h */,
-				016C41B71FE7E3EF0045A574 /* AppDelegate.m */,
-				016C41B91FE7E3EF0045A574 /* ViewController.h */,
-				016C41BA1FE7E3EF0045A574 /* ViewController.m */,
-				016C41BC1FE7E3EF0045A574 /* Main.storyboard */,
-				016C41BF1FE7E3EF0045A574 /* Assets.xcassets */,
-				016C41C11FE7E3EF0045A574 /* LaunchScreen.storyboard */,
-				016C41C41FE7E3EF0045A574 /* Info.plist */,
-				016C41C51FE7E3EF0045A574 /* main.m */,
+				023BCF11208611760097E130 /* PublicFetchTarget.swift */,
+				023BCF0A2085DCC90097E130 /* PT-Fetch */,
+				023BCEF62085DB3D0097E130 /* AppDelegate.swift */,
+				023BCEF82085DB3D0097E130 /* ViewController.swift */,
+				023BCEFA2085DB3D0097E130 /* Main.storyboard */,
+				023BCEFD2085DB3D0097E130 /* Assets.xcassets */,
+				023BCEFF2085DB3D0097E130 /* LaunchScreen.storyboard */,
+				023BCF022085DB3D0097E130 /* Info.plist */,
 			);
 			path = "PT-FetchDemo";
 			sourceTree = "<group>";
 		};
-		016C41CC1FE7E40E0045A574 /* PTFetch */ = {
+		023BCF0A2085DCC90097E130 /* PT-Fetch */ = {
 			isa = PBXGroup;
 			children = (
-				016C41D71FE7FA000045A574 /* PTFetchDelegate.h */,
-				016C41CE1FE7E5050045A574 /* Emitter */,
-				016C41D31FE7E6860045A574 /* Model */,
+				023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */,
+				023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */,
 			);
-			path = PTFetch;
+			path = "PT-Fetch";
 			sourceTree = SOURCE_ROOT;
 		};
-		016C41CE1FE7E5050045A574 /* Emitter */ = {
+		7106621B4267AF52FD669B67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				016C41CF1FE7E5900045A574 /* PTFetchEmitter.h */,
-				016C41D01FE7E5900045A574 /* PTFetchEmitter.m */,
-			);
-			path = Emitter;
-			sourceTree = "<group>";
-		};
-		016C41D31FE7E6860045A574 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				016C41D41FE7E79C0045A574 /* PTFetchModel.h */,
-				016C41D51FE7E79C0045A574 /* PTFetchModel.m */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		1D0DE360C138E2F873E31110 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0DEDC23F317183CAED03B4AF /* Pods-PT-FetchDemo.debug.xcconfig */,
-				EA5B4EBFC3F734D2D0A33FBF /* Pods-PT-FetchDemo.release.xcconfig */,
+				7990223057431AD44E10C326 /* Pods-PT-FetchDemo.debug.xcconfig */,
+				0FF1C46AC68372CD8F249152 /* Pods-PT-FetchDemo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		304A1FF8BD7B1F275AE34296 /* Frameworks */ = {
+		AD0E69BA3834199E7B653BCF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				1C780F4129804D07C5024A71 /* Pods_PT_FetchDemo.framework */,
+				2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -139,16 +110,16 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		016C41B21FE7E3EF0045A574 /* PT-FetchDemo */ = {
+		023BCEF22085DB3D0097E130 /* PT-FetchDemo */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 016C41C91FE7E3EF0045A574 /* Build configuration list for PBXNativeTarget "PT-FetchDemo" */;
+			buildConfigurationList = 023BCF052085DB3D0097E130 /* Build configuration list for PBXNativeTarget "PT-FetchDemo" */;
 			buildPhases = (
-				8EB070C05C5EE3D695085D1A /* [CP] Check Pods Manifest.lock */,
-				016C41AF1FE7E3EF0045A574 /* Sources */,
-				016C41B01FE7E3EF0045A574 /* Frameworks */,
-				016C41B11FE7E3EF0045A574 /* Resources */,
-				BBA8BEBBA6FFE277D3C158C3 /* [CP] Embed Pods Frameworks */,
-				4A0B5616893F8EBDD4B26B47 /* [CP] Copy Pods Resources */,
+				8F1BAE138855E210C67D2591 /* [CP] Check Pods Manifest.lock */,
+				023BCEEF2085DB3D0097E130 /* Sources */,
+				023BCEF02085DB3D0097E130 /* Frameworks */,
+				023BCEF12085DB3D0097E130 /* Resources */,
+				71518733F87A81F9F601C4B2 /* [CP] Embed Pods Frameworks */,
+				9C87AB65976BC27F6629AF06 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -156,25 +127,26 @@
 			);
 			name = "PT-FetchDemo";
 			productName = "PT-FetchDemo";
-			productReference = 016C41B31FE7E3EF0045A574 /* PT-FetchDemo.app */;
+			productReference = 023BCEF32085DB3D0097E130 /* PT-FetchDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		016C41AB1FE7E3EF0045A574 /* Project object */ = {
+		023BCEEB2085DB3D0097E130 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0910;
-				ORGANIZATIONNAME = OComme;
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = Kang;
 				TargetAttributes = {
-					016C41B21FE7E3EF0045A574 = {
-						CreatedOnToolsVersion = 9.1;
+					023BCEF22085DB3D0097E130 = {
+						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 016C41AE1FE7E3EF0045A574 /* Build configuration list for PBXProject "PT-FetchDemo" */;
+			buildConfigurationList = 023BCEEE2085DB3D0097E130 /* Build configuration list for PBXProject "PT-FetchDemo" */;
 			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -182,46 +154,49 @@
 				en,
 				Base,
 			);
-			mainGroup = 016C41AA1FE7E3EF0045A574;
-			productRefGroup = 016C41B41FE7E3EF0045A574 /* Products */;
+			mainGroup = 023BCEEA2085DB3D0097E130;
+			productRefGroup = 023BCEF42085DB3D0097E130 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				016C41B21FE7E3EF0045A574 /* PT-FetchDemo */,
+				023BCEF22085DB3D0097E130 /* PT-FetchDemo */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		016C41B11FE7E3EF0045A574 /* Resources */ = {
+		023BCEF12085DB3D0097E130 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016C41C31FE7E3EF0045A574 /* LaunchScreen.storyboard in Resources */,
-				016C41C01FE7E3EF0045A574 /* Assets.xcassets in Resources */,
-				016C41BE1FE7E3EF0045A574 /* Main.storyboard in Resources */,
+				023BCF012085DB3D0097E130 /* LaunchScreen.storyboard in Resources */,
+				023BCEFE2085DB3D0097E130 /* Assets.xcassets in Resources */,
+				023BCEFC2085DB3D0097E130 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4A0B5616893F8EBDD4B26B47 /* [CP] Copy Pods Resources */ = {
+		71518733F87A81F9F601C4B2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8EB070C05C5EE3D695085D1A /* [CP] Check Pods Manifest.lock */ = {
+		8F1BAE138855E210C67D2591 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -239,55 +214,53 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BBA8BEBBA6FFE277D3C158C3 /* [CP] Embed Pods Frameworks */ = {
+		9C87AB65976BC27F6629AF06 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		016C41AF1FE7E3EF0045A574 /* Sources */ = {
+		023BCEEF2085DB3D0097E130 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				016C41DA1FE807A90045A574 /* PublicFetchTarget.m in Sources */,
-				016C41BB1FE7E3EF0045A574 /* ViewController.m in Sources */,
-				016C41C61FE7E3EF0045A574 /* main.m in Sources */,
-				016C41B81FE7E3EF0045A574 /* AppDelegate.m in Sources */,
-				016C41D11FE7E5900045A574 /* PTFetchEmitter.m in Sources */,
-				016C41D61FE7E79C0045A574 /* PTFetchModel.m in Sources */,
+				023BCF0E2085DCEA0097E130 /* PTFetchModel.swift in Sources */,
+				023BCEF92085DB3D0097E130 /* ViewController.swift in Sources */,
+				023BCEF72085DB3D0097E130 /* AppDelegate.swift in Sources */,
+				023BCF12208611760097E130 /* PublicFetchTarget.swift in Sources */,
+				023BCF0C2085DCDD0097E130 /* PTFetchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		016C41BC1FE7E3EF0045A574 /* Main.storyboard */ = {
+		023BCEFA2085DB3D0097E130 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				016C41BD1FE7E3EF0045A574 /* Base */,
+				023BCEFB2085DB3D0097E130 /* Base */,
+				023BCF082085DB610097E130 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		016C41C11FE7E3EF0045A574 /* LaunchScreen.storyboard */ = {
+		023BCEFF2085DB3D0097E130 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				016C41C21FE7E3EF0045A574 /* Base */,
+				023BCF002085DB3D0097E130 /* Base */,
+				023BCF092085DB610097E130 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -295,10 +268,11 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		016C41C71FE7E3EF0045A574 /* Debug */ = {
+		023BCF032085DB3D0097E130 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -347,13 +321,16 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		016C41C81FE7E3EF0045A574 /* Release */ = {
+		023BCF042085DB3D0097E130 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -395,34 +372,39 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		016C41CA1FE7E3EF0045A574 /* Debug */ = {
+		023BCF062085DB3D0097E130 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0DEDC23F317183CAED03B4AF /* Pods-PT-FetchDemo.debug.xcconfig */;
+			baseConfigurationReference = 7990223057431AD44E10C326 /* Pods-PT-FetchDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5H9NQ9S952;
 				INFOPLIST_FILE = "PT-FetchDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "pt.ocomme.PT-FetchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "pt.PT-FetchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		016C41CB1FE7E3EF0045A574 /* Release */ = {
+		023BCF072085DB3D0097E130 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA5B4EBFC3F734D2D0A33FBF /* Pods-PT-FetchDemo.release.xcconfig */;
+			baseConfigurationReference = 0FF1C46AC68372CD8F249152 /* Pods-PT-FetchDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5H9NQ9S952;
 				INFOPLIST_FILE = "PT-FetchDemo/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "pt.ocomme.PT-FetchDemo";
+				PRODUCT_BUNDLE_IDENTIFIER = "pt.PT-FetchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -430,25 +412,25 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		016C41AE1FE7E3EF0045A574 /* Build configuration list for PBXProject "PT-FetchDemo" */ = {
+		023BCEEE2085DB3D0097E130 /* Build configuration list for PBXProject "PT-FetchDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				016C41C71FE7E3EF0045A574 /* Debug */,
-				016C41C81FE7E3EF0045A574 /* Release */,
+				023BCF032085DB3D0097E130 /* Debug */,
+				023BCF042085DB3D0097E130 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		016C41C91FE7E3EF0045A574 /* Build configuration list for PBXNativeTarget "PT-FetchDemo" */ = {
+		023BCF052085DB3D0097E130 /* Build configuration list for PBXNativeTarget "PT-FetchDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				016C41CA1FE7E3EF0045A574 /* Debug */,
-				016C41CB1FE7E3EF0045A574 /* Release */,
+				023BCF062085DB3D0097E130 /* Debug */,
+				023BCF072085DB3D0097E130 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 016C41AB1FE7E3EF0045A574 /* Project object */;
+	rootObject = 023BCEEB2085DB3D0097E130 /* Project object */;
 }

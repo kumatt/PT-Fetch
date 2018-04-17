@@ -23,11 +23,11 @@ Pod::Spec.new do |s|
   s.platform     = :ios
 
   s.source       = { :git => "https://github.com/OComme/PT-Fetch.git", :tag => "#{s.version}" }
-  s.source_files  = "PT-FetchDemo/PTFetch/**/*.{h,m}"
+  s.source_files  = "PT-FetchDemo/PT-Fetch/*.{swift}"
 
   s.requires_arc = true
 
   s.ios.deployment_target = "9.0"
-  s.dependency "AFNetworking"
+  s.dependency "Alamofire"
 
 end
