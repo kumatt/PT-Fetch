@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
     }
     
-    func succeessWay(_:Any) {
+    func succeess(_:Any) {
         
     }
     func failure(_:Any) {
