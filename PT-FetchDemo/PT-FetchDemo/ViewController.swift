@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
         fetchModel.contentType = "png"
         fetchModel.mimeType = "image/*"
-        fetchModel.succeess = succeessWay
+        fetchModel.succeess = succeess
         fetchModel.failure  = failure
         PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
     }

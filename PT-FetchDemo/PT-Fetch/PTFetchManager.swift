@@ -10,29 +10,29 @@
 import UIKit
 import Alamofire
 
-class PTFetchManager: NSObject {
+public class PTFetchManager: NSObject {
     
     //single instance
     static let sharedInstance = PTFetchManager()
     private override init() {} //This prevents others from using the default '()' initializer for this class.
     
-    class func Fetch_PostData(fetchModel:PTFetchModel!) {
+    public class func Fetch_PostData(fetchModel:PTFetchModel!) {
         PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .post)
     }
     
-    class func Fetch_GetData(fetchModel:PTFetchModel!) {
+    public class func Fetch_GetData(fetchModel:PTFetchModel!) {
         PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .get)
     }
     
-    class func Fetch_DeleteData(fetchModel:PTFetchModel!) {
+    public class func Fetch_DeleteData(fetchModel:PTFetchModel!) {
         PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .delete)
     }
     
-    class func Fetch_PutData(fetchModel:PTFetchModel!) {
+    public class func Fetch_PutData(fetchModel:PTFetchModel!) {
         PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .put)
     }
     
-    class func Fetch_UploadData(fetchModel:PTFetchModel!) {
+    public class func Fetch_UploadData(fetchModel:PTFetchModel!) {
         PTFetchManager.sharedInstance.upLoadDataWithFetchModel(fetchModel: fetchModel)
     }
     
