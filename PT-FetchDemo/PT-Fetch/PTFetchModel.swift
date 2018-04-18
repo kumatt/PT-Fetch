@@ -29,8 +29,8 @@ public protocol PTFetchProtocol {
 
 public class PTFetchModel: NSObject {
     
-    static var fetchDelegate:PTFetchProtocol?
-    class func delegate(delegate:PTFetchProtocol) {
+    private static var fetchDelegate:PTFetchProtocol?
+    public class func delegate(delegate:PTFetchProtocol) {
         fetchDelegate = delegate
     }
     

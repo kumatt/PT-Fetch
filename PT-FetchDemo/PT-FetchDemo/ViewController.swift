@@ -24,16 +24,14 @@ class ViewController: UIViewController {
         fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
         fetchModel.contentType = "png"
         fetchModel.mimeType = "image/*"
-        fetchModel.succeess = succeess
-        fetchModel.failure  = failure
+        fetchModel.succeess = {(_:Any) in
+            
+        }
+        fetchModel.failure  = {(_:Any) in
+            
+        }
+        
         PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
-    }
-    
-    func succeess(_:Any) {
-        
-    }
-    func failure(_:Any) {
-        
     }
     
     override func didReceiveMemoryWarning() {
