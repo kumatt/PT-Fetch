@@ -20,7 +20,7 @@ public protocol PTFetchProtocol {
     func appentParamentsWithShortParament(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
     
     /// 根据规则筛选数据
-    func dealRulesWith(data:Data,success:PTFetchBlock,failure:PTFetchBlock)
+    func dealRulesWith(data:Data,success:PTFetchBlock?,failure:PTFetchBlock?)
     
     ///处理错误信息
     func dealErrorData(error:Any) -> Any

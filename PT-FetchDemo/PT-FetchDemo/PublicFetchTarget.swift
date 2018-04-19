@@ -39,23 +39,28 @@ class PublicFetchTarget: PTFetchProtocol {
         throw PublicFetchError.UnknownError
     }
     
-    func dealRulesWith(data: Data, success: (Any) -> Void, failure: (Any) -> Void) {
+    func dealRulesWith(data: Data, success: PTFetchBlock?, failure: PTFetchBlock?) {
         do{
             let dict:Dictionary<String,Any> = try dealDataInZhangGui(data: data)
-            success(dict)
+            if success != nil {
+                success!(dict)
+            }
         }
         catch{
+            if failure == nil {
+                return
+            }
             switch error {
             case PublicFetchError.NullData:
-                failure("空数据")
+                failure!("空数据")
             case PublicFetchError.UnknownError:
-                failure("数据异常")
+                failure!("数据异常")
             case PublicFetchError.ErrorMessage:
                 do {
-                    failure((try!JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String,Any>)!["message"]! as Any)
+                    failure!((try!JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String,Any>)!["message"]! as Any)
                 }
             default:
-                failure("网络异常")
+                failure!("网络异常")
             }
         }
     }
