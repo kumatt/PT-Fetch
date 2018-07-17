@@ -76,7 +76,7 @@ open class PTFetchModel: NSObject {
     private var _paraments:Dictionary<String,Any>?
     
 
-    var uploadDatas:Array<PTFetchUploadData>?
+    public var uploadDatas:Array<PTFetchUploadData>?
     
     //MARK:block
     

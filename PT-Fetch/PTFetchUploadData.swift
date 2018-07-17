@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PTFetchUploadData: NSObject {
+public class PTFetchUploadData: NSObject {
 
     public var uploadData:Data?
     

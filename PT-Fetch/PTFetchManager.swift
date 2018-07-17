@@ -48,7 +48,7 @@ public class PTFetchManager: NSObject {
     }
     
     private func upLoadDataWithFetchModel(fetchModel:PTFetchModel!) {
-        assert(fetchModel!.uploadDatas?.count != 0,"uploadData can not be nil")
+        assert(fetchModel!.uploadDatas != nil,"uploadData can not be nil")
 
         let formatter:DateFormatter = DateFormatter.init()
         formatter.dateFormat = "yyyyMMddHHmmss";
