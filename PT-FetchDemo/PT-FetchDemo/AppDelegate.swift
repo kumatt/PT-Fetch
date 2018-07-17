@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import PTFetch
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
