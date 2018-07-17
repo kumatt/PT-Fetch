@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import PTFetch
 
 class ViewController: UIViewController {
 
@@ -18,12 +19,12 @@ class ViewController: UIViewController {
     }
 
     func fetch() {
-        let fetchModel:PTFetchModel = PTFetchModel()
+        let fetchModel:MyFetchTarget = MyFetchTarget()
         fetchModel.urlString = "http://www.juyuanche.com/api001/user/userInfo"
-        fetchModel.uploadName = "user_picture"
-        fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
-        fetchModel.contentType = "png"
-        fetchModel.mimeType = "image/*"
+//        fetchModel.uploadName = "user_picture"
+//        fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
+//        fetchModel.contentType = "png"
+//        fetchModel.mimeType = "image/*"
         fetchModel.succeess = {(_:Any) in
             
         }

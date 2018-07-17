@@ -5,108 +5,85 @@
 //  Created by ZhangJian on 2018/4/17.
 //  Copyright © 2018年 Kang. All rights reserved.
 //
-//数据请求处理
+//  request processing
 
 import UIKit
 
 public typealias PTFetchBlock = (_:Any) -> Void
 
-public protocol PTFetchProtocol {
+@objc public protocol PTFetchProtocol {
     
-    /// 拼接请求路径
-    func appentUrlWithShortUrl(url:String!) -> String?
+    func urlByAppending(url:String!) -> String?
     
-    /// 拼接配置参数
-    func appentParamentsWithShortParament(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
+    func paramentByAppending(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
     
-    /// 根据规则筛选数据
-    func dealRulesWith(data:Data,success:PTFetchBlock?,failure:PTFetchBlock?)
+    /// Filter target data according to rules
+    func filteredResponseData(data:Data,success:PTFetchBlock?,failure:PTFetchBlock?)
     
-    ///处理错误信息
-    func dealErrorData(error:Any) -> Any
+    /// Processing error message
+    func mapErrorData(error:Any?) -> Any
 }
 
 
-public class PTFetchModel: NSObject {
+open class PTFetchModel: NSObject {
     
-    private static var fetchDelegate:PTFetchProtocol?
-    public class func delegate(delegate:PTFetchProtocol) {
-        fetchDelegate = delegate
+    private var delegate:PTFetchProtocol!
+    
+    required override public init() {
+        super.init();
+        assert(self.conforms(to: PTFetchProtocol.self), (String(describing: self.classForCoder) + "should conform PTFetchProtocol"))
+        self.delegate = self as! PTFetchProtocol;
     }
     
     //MARK:deal data
-    
-    /// 返回数据
-    public var responseObject:Data?{
-        set{
-            assert(PTFetchModel.fetchDelegate != nil, "PTFetchModel 必须设置 代理对象")
-            PTFetchModel.fetchDelegate?.dealRulesWith(data: newValue!, success: self.succeess!, failure: self.failure!)
-        }
-        get{
-            return nil
-        }
+    public func setResponseData(responseData:Data?){
+        self.delegate.filteredResponseData(data: responseData!, success: self.succeess, failure: self.failure)
     }
     
-    ///错误信息
-    public var errorInfo:Any?{
-        set{
-            assert(PTFetchModel.fetchDelegate != nil, "PTFetchModel 必须设置 代理对象")
-            if (self.failure != nil) {
-                self.failure!(PTFetchModel.fetchDelegate?.dealErrorData(error: newValue as Any)as Any)
-            }
-        }
-        get{
-            return nil
+    public func setErrorInfo(errorInfo:Any?){
+        if self.failure != nil {
+            self.failure!(self.delegate.mapErrorData(error: errorInfo));
         }
     }
     
     //MARK:fetch configure
-    /// 请求路径
+    /// request path
     public var urlString:String {
         set{
             _urlString = newValue
         }
         get{
-            assert(PTFetchModel.fetchDelegate != nil, "PTFetchModel 必须设置 代理对象")
-            return (PTFetchModel.fetchDelegate?.appentUrlWithShortUrl(url: _urlString))!
+            if _urlString?.count == 0 {
+                return "";
+            }
+            return self.delegate.urlByAppending(url: _urlString)!;
         }
     }
     private var _urlString:String?
     
-    /// 请求参数
+    /// request parameters
     public var paraments:Dictionary<String,Any> {
         set{
             _paraments = newValue
         }
         get{
-            assert(PTFetchModel.fetchDelegate != nil, "PTFetchModel 必须设置 代理对象")
-            return (PTFetchModel.fetchDelegate?.appentParamentsWithShortParament(parament: _paraments))!
+            if _paraments?.count == 0 {
+                return Dictionary.init();
+            }
+            return (self.delegate.paramentByAppending(parament: _paraments))!
         }
     }
     private var _paraments:Dictionary<String,Any>?
     
-    //MARK:upload configure
-    ///上传数据
-    public var uploadData:Data?
 
-    /// 上传文件名（参数）
-    public var uploadName:String?
+    var uploadDatas:Array<PTFetchUploadData>?
     
-    /// 文件拓展名（例如png、jpeg、gif、tiff等）
-    public var contentType:String?
+    //MARK:block
     
-    /// 类型名（例如image`/`*等）
-    public var mimeType:String?
-    
-    //MARK:bLOCK
-    
-    ///成功回调
     public var succeess:PTFetchBlock?
     
-    /// 失败回调
     public var failure:PTFetchBlock?
     
-    /// 请求进度
     public var progressing:PTFetchBlock?
     
 }

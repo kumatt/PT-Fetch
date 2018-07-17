@@ -1,52 +1,48 @@
 # PTFetch
-Encapsulation of network data requests
 
-首先，创建一个实现`PTFetchDelegate`代理方法的类
+`PTFetch`本质上是基于面向接口的思想，对 [Alamofire](https://github.com/Alamofire/Alamofire) 的二次封装。
 
-```Swift
-/// 拼接请求路径
-    func appentUrlWithShortUrl(url:String!) -> String?
-    
-    /// 拼接配置参数
-    func appentParamentsWithShortParament(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
-    
-    /// 根据规则筛选数据
-    func dealRulesWith(data:Data,success:FetchBlock,failure:FetchBlock)
-    
-    ///处理错误信息
-    func dealErrorData(error:Any) -> Any
+# PTFetchModel
 
-```
+作为数据请求配置模型，所有在HTTP请求中需要的参数和回调都在这里配置。
 
-并在`AppDelegate`中将其配置给`PTFetchModel`
+它不能被直接使用，需创建其子类，遵循`PTFetchProtocol`协议的方法，以此作为请求模型的定制。
 
 ```Swift
- func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        PTFetchModel.delegate(delegate: PublicFetchTarget())
-        return true
-    }
+public typealias PTFetchBlock = (_:Any) -> Void
+
+@objc public protocol PTFetchProtocol {
+    
+    func urlByAppending(url:String!) -> String?
+    
+    func paramentByAppending(parament:Dictionary<String,Any>!) -> Dictionary<String,Any>?
+    
+    /// Filter target data according to rules
+    func filteredResponseData(data:Data,success:PTFetchBlock?,failure:PTFetchBlock?)
+    
+    /// Processing error message
+    func mapErrorData(error:Any?) -> Any
+}
 ```
 
-之后，便可直接调用`PTFetchManager`来进行数据请求
+# PTFetchManager
+
+作为请求的主体对象，使用`PTFetchModel`进行数据请求
 
 ```Swift
-   func fetch() {
-      let fetchModel:PTFetchModel = PTFetchModel()
-      fetchModel.urlString = "http://www.juyuanche.com/api001/user/userInfo"
-      fetchModel.uploadName = "user_picture"
-      fetchModel.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
-      fetchModel.contentType = "png"
-      fetchModel.mimeType = "image/*"
-      fetchModel.succeess = succeessWay
-      fetchModel.failure  = failure
-      PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
-  }
-
-  func succeess(_:Any) {
-
-  }
-  func failure(_:Any) {
-
-  }
+public class func Fetch_PostData(fetchModel:PTFetchModel!) 
+   
+public class func Fetch_GetData(fetchModel:PTFetchModel!) 
+   
+public class func Fetch_DeleteData(fetchModel:PTFetchModel!) 
+    
+public class func Fetch_PutData(fetchModel:PTFetchModel!) 
+   
+public class func Fetch_UploadData(fetchModel:PTFetchModel!)
 ```
+
+如果你想要将这个工具导入你的项目 请使用
+
+`pod 'PTFetch', :git=> 'https://github.com/OComme/PT-FetchObjc'`
+
+

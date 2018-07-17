@@ -5,7 +5,7 @@
 //  Created by ZhangJian on 2018/4/17.
 //  Copyright © 2018年 Kang. All rights reserved.
 //
-//数据请求模型
+//  request model
 
 import UIKit
 import Alamofire
@@ -40,55 +40,53 @@ public class PTFetchManager: NSObject {
     private func sendRequestWithFetchModel(fetchModel:PTFetchModel!,method:HTTPMethod) {
         Alamofire.request(URL.init(string: fetchModel!.urlString)!, method: method, parameters: fetchModel!.paraments).responseData { (resultData) in
             if resultData.result.value != nil{
-                fetchModel!.responseObject = resultData.result.value
+                fetchModel!.setResponseData(responseData: resultData.result.value)
                 return
             }
-            fetchModel!.errorInfo = resultData.result.error
+            fetchModel!.setErrorInfo(errorInfo: resultData.result.error)
         }
     }
     
     private func upLoadDataWithFetchModel(fetchModel:PTFetchModel!) {
-        assert(fetchModel!.uploadData != nil,"uploadData can not be nil")
-        assert(fetchModel!.uploadName != nil,"uploadName can not be nil")
-        assert(fetchModel!.contentType != nil,"contentType can not be nil")
-        assert(fetchModel!.mimeType != nil,"mimeType can not be nil")
+        assert(fetchModel!.uploadDatas?.count != 0,"uploadData can not be nil")
 
         let formatter:DateFormatter = DateFormatter.init()
         formatter.dateFormat = "yyyyMMddHHmmss";
-        let fileName:String = "\(formatter.string(from: Date.init()))\(String(describing: fetchModel!.contentType))"
         
-        //上传数据到服务器
+        //Upload to server
+        // 参数解释：
+        //withName:和后台服务器的name要一致 ；fileName:可以充分利用写成用户的id，但是格式要写对； mimeType：规定的，要上传其他格式可以自行百度查一下
+        //如果需要上传多个文件,就多添加几个
+        //multipartFormData.append(imageData, withName: "file", fileName: "123456.jpg", mimeType: "image/jpeg")
         Alamofire.upload(
             multipartFormData: { multipartFormData in
-                //采用post表单上传
-                // 参数解释：
-                //withName:和后台服务器的name要一致 ；fileName:可以充分利用写成用户的id，但是格式要写对； mimeType：规定的，要上传其他格式可以自行百度查一下
-                multipartFormData.append(fetchModel!.uploadData!, withName: fetchModel!.uploadName!, fileName: fileName, mimeType: fetchModel!.mimeType!)
-                //如果需要上传多个文件,就多添加几个
-                //multipartFormData.append(imageData, withName: "file", fileName: "123456.jpg", mimeType: "image/jpeg")
-                //......
+                for (index,dataModel) in fetchModel.uploadDatas!.enumerated(){
+                    let fileName:String = "\(formatter.string(from: Date.init()))\(String(describing: dataModel.contentType))"+"-"+String(index)
+                    multipartFormData.append(dataModel.uploadData!, withName: dataModel.uploadName!, fileName: fileName, mimeType: dataModel.mimeType!)
+                }
                 
         },to: fetchModel!.urlString,encodingCompletion: { encodingResult in
             
             switch encodingResult {
             case .success(let upload, _, _):
-                //连接服务器成功后，对json的处理
+                //The processing of json after a successful connection to the server
                 upload.responseJSON { response in
                     if response.result.value != nil {
-                        fetchModel!.responseObject = (response.result.value as! Data)
+                        fetchModel!.setResponseData(responseData: (response.result.value as! Data))
+
                     }else{
-                        fetchModel!.errorInfo = response.result.error
+                        fetchModel!.setErrorInfo(errorInfo: response.result.error)
                     }
                 }
-                //获取上传进度
+                //Get upload progress
                 upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
                     if fetchModel!.progressing != nil {
                         fetchModel!.progressing!(progress.fractionCompleted)
                     }
                 }
             case .failure(let encodingError):
-                //打印连接失败原因
-                fetchModel!.errorInfo = encodingError
+                //Print connection failed
+                fetchModel!.setErrorInfo(errorInfo: encodingError)
             }
         })
         

@@ -1,15 +1,16 @@
 //
-//  PublicFetchTarget.swift
+//  MyFetchTarget.swift
 //  PT-FetchDemo
 //
-//  Created by ZhangJian on 2018/4/17.
+//  Created by Mac on 2018/7/17.
 //  Copyright © 2018年 Kang. All rights reserved.
 //
 
 import UIKit
+//import PTFetch
 
-class PublicFetchTarget: PTFetchProtocol {
-    
+class MyFetchTarget: PTFetchModel,PTFetchProtocol {
+
     /// 对数据的处理结果抛错
     enum PublicFetchError:Error {
         /// 数据解析错误
@@ -22,7 +23,7 @@ class PublicFetchTarget: PTFetchProtocol {
         case UnknownError
     }
     
-    func dealDataInZhangGui(data:Data) throws -> Dictionary<String,Any> {
+    func dealResponseData(data:Data) throws -> Dictionary<String,Any> {
         if data.isEmpty {
             throw  PublicFetchError.NullData
         }
@@ -39,9 +40,17 @@ class PublicFetchTarget: PTFetchProtocol {
         throw PublicFetchError.UnknownError
     }
     
-    func dealRulesWith(data: Data, success: PTFetchBlock?, failure: PTFetchBlock?) {
+    func urlByAppending(url: String!) -> String? {
+        return String(url)
+    }
+    
+    func paramentByAppending(parament: Dictionary<String, Any>!) -> Dictionary<String, Any>? {
+        return parament
+    }
+    
+    func filteredResponseData(data: Data, success: PTFetchBlock?, failure: PTFetchBlock?) {
         do{
-            let dict:Dictionary<String,Any> = try dealDataInZhangGui(data: data)
+            let dict:Dictionary<String,Any> = try dealResponseData(data: data)
             if success != nil {
                 success!(dict)
             }
@@ -62,22 +71,15 @@ class PublicFetchTarget: PTFetchProtocol {
             default:
                 failure!("网络异常")
             }
-        }
+         }
     }
-    
-    func appentUrlWithShortUrl(url: String!) -> String? {
-        return String(url)
-    }
-    
-    func appentParamentsWithShortParament(parament: Dictionary<String, Any>!) -> Dictionary<String, Any>? {
-        return parament
-    }
-    
-    func dealErrorData(error: Any) -> Any {
+        
+    func mapErrorData(error: Any?) -> Any {
         if error is String {
-            return error
+            return error!
         }
         return "网络异常"
     }
+    
 
 }
