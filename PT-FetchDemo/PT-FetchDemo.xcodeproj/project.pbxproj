@@ -12,8 +12,6 @@
 		023BCEFC2085DB3D0097E130 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFA2085DB3D0097E130 /* Main.storyboard */; };
 		023BCEFE2085DB3D0097E130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFD2085DB3D0097E130 /* Assets.xcassets */; };
 		023BCF012085DB3D0097E130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFF2085DB3D0097E130 /* LaunchScreen.storyboard */; };
-		023BCF0C2085DCDD0097E130 /* PTFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */; };
-		023BCF0E2085DCEA0097E130 /* PTFetchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */; };
 		023BCF12208611760097E130 /* PublicFetchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 023BCF11208611760097E130 /* PublicFetchTarget.swift */; };
 		FC3D481AA313671DD4D278C6 /* Pods_PT_FetchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */; };
 /* End PBXBuildFile section */
@@ -28,8 +26,6 @@
 		023BCF022085DB3D0097E130 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		023BCF082085DB610097E130 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		023BCF092085DB610097E130 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
-		023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFetchManager.swift; sourceTree = "<group>"; };
-		023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTFetchModel.swift; sourceTree = "<group>"; };
 		023BCF11208611760097E130 /* PublicFetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublicFetchTarget.swift; sourceTree = "<group>"; };
 		0FF1C46AC68372CD8F249152 /* Pods-PT-FetchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PT_FetchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				023BCF11208611760097E130 /* PublicFetchTarget.swift */,
-				023BCF0A2085DCC90097E130 /* PT-Fetch */,
 				023BCEF62085DB3D0097E130 /* AppDelegate.swift */,
 				023BCEF82085DB3D0097E130 /* ViewController.swift */,
 				023BCEFA2085DB3D0097E130 /* Main.storyboard */,
@@ -80,15 +75,6 @@
 			);
 			path = "PT-FetchDemo";
 			sourceTree = "<group>";
-		};
-		023BCF0A2085DCC90097E130 /* PT-Fetch */ = {
-			isa = PBXGroup;
-			children = (
-				023BCF0B2085DCDD0097E130 /* PTFetchManager.swift */,
-				023BCF0D2085DCEA0097E130 /* PTFetchModel.swift */,
-			);
-			path = "PT-Fetch";
-			sourceTree = SOURCE_ROOT;
 		};
 		7106621B4267AF52FD669B67 /* Pods */ = {
 			isa = PBXGroup;
@@ -236,11 +222,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				023BCF0E2085DCEA0097E130 /* PTFetchModel.swift in Sources */,
 				023BCEF92085DB3D0097E130 /* ViewController.swift in Sources */,
 				023BCEF72085DB3D0097E130 /* AppDelegate.swift in Sources */,
 				023BCF12208611760097E130 /* PublicFetchTarget.swift in Sources */,
-				023BCF0C2085DCDD0097E130 /* PTFetchManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
