@@ -7,73 +7,29 @@
 //
 
 import UIKit
+import PTFetch
 
 class MyFetchTarget: PTFetchModel,PTFetchProtocol {
-    func filteredResponseData(data: DataResponse<Data>) -> (Bool, Any?) {
-        return (true,"")
+    func urlByAppending(url: String?) -> String {
+        return url ?? ""
     }
+    
+    func paramentByAppending(parament: Dictionary<String, Any>?) -> Dictionary<String, Any> {
+        return parament ?? Dictionary.init()
 
-    /// 对数据的处理结果抛错
-    enum PublicFetchError:Error {
-        /// 数据解析错误
-        case NullData
-        
-        /// 后台提示错误信息
-        case ErrorMessage
-        
-        /// 未知错误
-        case UnknownError
     }
     
-    func dealResponseData(data:Data) throws -> Dictionary<String,Any> {
-        if data.isEmpty {
-            throw  PublicFetchError.NullData
+    func filteredResponseData(data: DataResponse<Data>) -> (Bool, Any?) {
+        if data.result.value?.isEmpty == true {
+            return (false,mapErrorData(error: nil))
         }
-        let dict:Dictionary<String,Any> = (try!JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String,Any>)!
-        if dict.isEmpty {
-            throw  PublicFetchError.NullData
+        guard let dict = try!JSONSerialization.jsonObject(with: data.result.value!, options: .allowFragments) as? Dictionary<String,Any> else{
+            return (false,mapErrorData(error: nil))
         }
-        if dict["code"] as? Int == 0 {
-            return dict
+        if dict["code"] as? Int == 0 || (dict["message"] as? String) != nil {
+            return (false,mapErrorData(error: dict))
         }
-        if ((dict["message"] as? String) != nil) {
-            throw PublicFetchError.ErrorMessage
-        }
-        throw PublicFetchError.UnknownError
-    }
-    
-    func urlByAppending(url: String!) -> String? {
-        return String(url)
-    }
-    
-    func paramentByAppending(parament: Dictionary<String, Any>!) -> Dictionary<String, Any>? {
-        return parament
-    }
-    
-    func filteredResponseData(data: Data, success: PTFetchBlock?, failure: PTFetchBlock?) {
-        do{
-            let dict:Dictionary<String,Any> = try dealResponseData(data: data)
-            if success != nil {
-                success!(dict)
-            }
-        }
-        catch{
-            if failure == nil {
-                return
-            }
-            switch error {
-            case PublicFetchError.NullData:
-                failure!("空数据")
-            case PublicFetchError.UnknownError:
-                failure!("数据异常")
-            case PublicFetchError.ErrorMessage:
-                do {
-                    failure!((try!JSONSerialization.jsonObject(with: data, options: .allowFragments) as? Dictionary<String,Any>)!["message"]! as Any)
-                }
-            default:
-                failure!("网络异常")
-            }
-         }
+        return (true,dict)
     }
         
     func mapErrorData(error: Any?) -> Any {

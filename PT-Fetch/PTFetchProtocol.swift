@@ -12,7 +12,7 @@ import Foundation
 
 public typealias PTFetchBlock = (_:Any) -> Void
 
-protocol PTFetchProtocol:NSObjectProtocol {
+public protocol PTFetchProtocol:NSObjectProtocol {
     
     func urlByAppending(url:String?) -> String
     

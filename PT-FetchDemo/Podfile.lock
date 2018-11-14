@@ -1,16 +1,28 @@
 PODS:
   - Alamofire (4.7.3)
+  - PTFetch (0.0.1):
+    - Alamofire
 
 DEPENDENCIES:
-  - Alamofire
+  - PTFetch (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
 
+EXTERNAL SOURCES:
+  PTFetch:
+    :git: "../"
+
+CHECKOUT OPTIONS:
+  PTFetch:
+    :commit: 19db6077edaa40b40226b845c870181d33ef7183
+    :git: "../"
+
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  PTFetch: cc25574ef27e9c65e2a753f9df4d99e8a16626d8
 
-PODFILE CHECKSUM: 72145ca675c14b731ec17270afd79eaf6884e280
+PODFILE CHECKSUM: a518a8e054b23effbe93c6d273289bc2fd8de52a
 
 COCOAPODS: 1.5.3
