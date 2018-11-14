@@ -13,6 +13,10 @@
 		023BCEFE2085DB3D0097E130 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFD2085DB3D0097E130 /* Assets.xcassets */; };
 		023BCF012085DB3D0097E130 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 023BCEFF2085DB3D0097E130 /* LaunchScreen.storyboard */; };
 		0421CBB420FDC47800399614 /* MyFetchTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0421CBB320FDC47800399614 /* MyFetchTarget.swift */; };
+		4918E6E1219BBD230052CCA6 /* PTFetchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918E6DD219BBD230052CCA6 /* PTFetchModel.swift */; };
+		4918E6E2219BBD230052CCA6 /* PTFetchUploadData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918E6DE219BBD230052CCA6 /* PTFetchUploadData.swift */; };
+		4918E6E3219BBD230052CCA6 /* PTFetchProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918E6DF219BBD230052CCA6 /* PTFetchProtocol.swift */; };
+		4918E6E4219BBD230052CCA6 /* PTFetchManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4918E6E0219BBD230052CCA6 /* PTFetchManager.swift */; };
 		FC3D481AA313671DD4D278C6 /* Pods_PT_FetchDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +33,10 @@
 		0421CBB320FDC47800399614 /* MyFetchTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyFetchTarget.swift; sourceTree = "<group>"; };
 		0FF1C46AC68372CD8F249152 /* Pods-PT-FetchDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2B9F34D90DB296403DE663D2 /* Pods_PT_FetchDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PT_FetchDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4918E6DD219BBD230052CCA6 /* PTFetchModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTFetchModel.swift; sourceTree = "<group>"; };
+		4918E6DE219BBD230052CCA6 /* PTFetchUploadData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTFetchUploadData.swift; sourceTree = "<group>"; };
+		4918E6DF219BBD230052CCA6 /* PTFetchProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTFetchProtocol.swift; sourceTree = "<group>"; };
+		4918E6E0219BBD230052CCA6 /* PTFetchManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PTFetchManager.swift; sourceTree = "<group>"; };
 		7990223057431AD44E10C326 /* Pods-PT-FetchDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PT-FetchDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -65,6 +73,7 @@
 		023BCEF52085DB3D0097E130 /* PT-FetchDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4918E6DC219BBD230052CCA6 /* PT-Fetch */,
 				0421CBB320FDC47800399614 /* MyFetchTarget.swift */,
 				023BCEF62085DB3D0097E130 /* AppDelegate.swift */,
 				023BCEF82085DB3D0097E130 /* ViewController.swift */,
@@ -74,6 +83,18 @@
 				023BCF022085DB3D0097E130 /* Info.plist */,
 			);
 			path = "PT-FetchDemo";
+			sourceTree = "<group>";
+		};
+		4918E6DC219BBD230052CCA6 /* PT-Fetch */ = {
+			isa = PBXGroup;
+			children = (
+				4918E6DD219BBD230052CCA6 /* PTFetchModel.swift */,
+				4918E6DE219BBD230052CCA6 /* PTFetchUploadData.swift */,
+				4918E6DF219BBD230052CCA6 /* PTFetchProtocol.swift */,
+				4918E6E0219BBD230052CCA6 /* PTFetchManager.swift */,
+			);
+			name = "PT-Fetch";
+			path = "../../PT-Fetch";
 			sourceTree = "<group>";
 		};
 		7106621B4267AF52FD669B67 /* Pods */ = {
@@ -127,6 +148,7 @@
 				TargetAttributes = {
 					023BCEF22085DB3D0097E130 = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -189,12 +211,10 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-PT-FetchDemo/Pods-PT-FetchDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/PTFetch/PTFetch.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PTFetch.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -208,8 +228,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4918E6E4219BBD230052CCA6 /* PTFetchManager.swift in Sources */,
+				4918E6E1219BBD230052CCA6 /* PTFetchModel.swift in Sources */,
+				4918E6E2219BBD230052CCA6 /* PTFetchUploadData.swift in Sources */,
 				023BCEF92085DB3D0097E130 /* ViewController.swift in Sources */,
 				0421CBB420FDC47800399614 /* MyFetchTarget.swift in Sources */,
+				4918E6E3219BBD230052CCA6 /* PTFetchProtocol.swift in Sources */,
 				023BCEF72085DB3D0097E130 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +382,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pt.PT-FetchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -374,7 +398,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "pt.PT-FetchDemo";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

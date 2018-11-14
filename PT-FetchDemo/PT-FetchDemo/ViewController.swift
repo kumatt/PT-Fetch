@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import PTFetch
+//import PTFetch
 
 class ViewController: UIViewController {
 
@@ -22,24 +22,29 @@ class ViewController: UIViewController {
         
         let uploadData = PTFetchUploadData();
         uploadData.uploadName = "user_picture"
-        uploadData.uploadData = UIImagePNGRepresentation(UIImage.init(named: "关闭")!)
+        uploadData.uploadData = UIImage.init(named: "关闭")!.pngData()
         uploadData.contentType = "png"
         uploadData.mimeType = "image/*"
         
         
         let fetchModel:MyFetchTarget = MyFetchTarget()
-        fetchModel.urlString = "http://www.ccc"
+        fetchModel.url = "http://www.ccc"
         
         fetchModel.uploadDatas = [uploadData];
         
-        fetchModel.succeess = {(_:Any) in
-            
-        }
-        fetchModel.failure  = {(_:Any) in
-            
-        }
+//        fetchModel.succeess = {(_:Any) in
+//            
+//        }
+//        fetchModel.failure  = {(_:Any) in
+//            
+//        }
         
-        PTFetchManager.Fetch_UploadData(fetchModel: fetchModel)
+//        PTFetchManager.upload(with: fetchModel, progressHandler: nil, succeed: { (response) in
+//            
+//        }) { (error) in
+//            
+//        }
+        
     }
     
     override func didReceiveMemoryWarning() {

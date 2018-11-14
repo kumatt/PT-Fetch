@@ -7,9 +7,11 @@
 //
 
 import UIKit
-import PTFetch
 
 class MyFetchTarget: PTFetchModel,PTFetchProtocol {
+    func filteredResponseData(data: DataResponse<Data>) -> (Bool, Any?) {
+        return (true,"")
+    }
 
     /// 对数据的处理结果抛错
     enum PublicFetchError:Error {

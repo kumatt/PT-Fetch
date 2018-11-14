@@ -8,7 +8,6 @@
 //  request model
 
 import UIKit
-import Alamofire
 
 public class PTFetchManager: NSObject {
     
@@ -16,39 +15,15 @@ public class PTFetchManager: NSObject {
     static let sharedInstance = PTFetchManager()
     private override init() {} //This prevents others from using the default '()' initializer for this class.
     
-    public class func Fetch_PostData(fetchModel:PTFetchModel!) {
-        PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .post)
-    }
-    
-    public class func Fetch_GetData(fetchModel:PTFetchModel!) {
-        PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .get)
-    }
-    
-    public class func Fetch_DeleteData(fetchModel:PTFetchModel!) {
-        PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .delete)
-    }
-    
-    public class func Fetch_PutData(fetchModel:PTFetchModel!) {
-        PTFetchManager.sharedInstance.sendRequestWithFetchModel(fetchModel: fetchModel,method: .put)
-    }
-    
-    public class func Fetch_UploadData(fetchModel:PTFetchModel!) {
-        PTFetchManager.sharedInstance.upLoadDataWithFetchModel(fetchModel: fetchModel)
-    }
-    
-    //MARK:implementation
-    private func sendRequestWithFetchModel(fetchModel:PTFetchModel!,method:HTTPMethod) {
-        Alamofire.request(URL.init(string: fetchModel!.urlString)!, method: method, parameters: fetchModel!.paraments).responseData { (resultData) in
-            if resultData.result.value != nil{
-                fetchModel!.setResponseData(responseData: resultData.result.value)
-                return
-            }
-            fetchModel!.setErrorInfo(errorInfo: resultData.result.error)
+    public class func request(with fetchModel:PTFetchModel , method:HTTPMethod ,headers: HTTPHeaders? = nil, succeed:@escaping PTFetchBlock = {_ in},failued:@escaping PTFetchBlock = {_ in}) {
+        Alamofire.request(URL.init(string: fetchModel.url)!, method: method, parameters: fetchModel.paraments, headers: headers).responseData { (responseData) in
+            let (enable,resultDict) = fetchModel.delegate.filteredResponseData(data: responseData)
+            enable ? succeed(resultDict as Any) : failued(resultDict as Any)
         }
     }
     
-    private func upLoadDataWithFetchModel(fetchModel:PTFetchModel!) {
-        assert(fetchModel!.uploadDatas != nil,"uploadData can not be nil")
+    public class func upload(with fetchModel:PTFetchModel,progressHandler:@escaping (Progress) -> Void = {_ in},succeed:@escaping PTFetchBlock = {_ in},failued:@escaping PTFetchBlock = {_ in}) {
+        assert(fetchModel.uploadDatas != nil,"uploadData can not be nil")
 
         let formatter:DateFormatter = DateFormatter.init()
         formatter.dateFormat = "yyyyMMddHHmmss";
@@ -65,28 +40,21 @@ public class PTFetchManager: NSObject {
                     multipartFormData.append(dataModel.uploadData!, withName: dataModel.uploadName!, fileName: fileName, mimeType: dataModel.mimeType!)
                 }
                 
-        },to: fetchModel!.urlString,encodingCompletion: { encodingResult in
+        },to: fetchModel.url,encodingCompletion: { encodingResult in
             
             switch encodingResult {
             case .success(let upload, _, _):
                 //The processing of json after a successful connection to the server
-                upload.responseJSON { response in
-                    if response.result.value != nil {
-                        fetchModel!.setResponseData(responseData: (response.result.value as! Data))
-
-                    }else{
-                        fetchModel!.setErrorInfo(errorInfo: response.result.error)
-                    }
-                }
+                upload.responseData(completionHandler: { (responseData) in
+                    let (enable,resultDict) = fetchModel.delegate.filteredResponseData(data: responseData)
+                    enable ? succeed(resultDict as Any) : failued(resultDict as Any)
+                })
+                
                 //Get upload progress
-                upload.uploadProgress(queue: DispatchQueue.global(qos: .utility)) { progress in
-                    if fetchModel!.progressing != nil {
-                        fetchModel!.progressing!(progress.fractionCompleted)
-                    }
-                }
+                upload.uploadProgress(queue: DispatchQueue.global(qos: .utility), closure: progressHandler)
             case .failure(let encodingError):
                 //Print connection failed
-                fetchModel!.setErrorInfo(errorInfo: encodingError)
+                failued(fetchModel.delegate.mapErrorData(error: encodingError))
             }
         })
         
